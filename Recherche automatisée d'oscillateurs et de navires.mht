@@ -1,0 +1,573 @@
+From: <Enregistré par Windows Internet Explorer 7>
+Subject: =?Windows-1252?Q?Recherche_automatis=E9e_d'oscillateurs_et_de_navires?=
+Date: Wed, 7 Feb 2007 13:45:22 +0100
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0041_01C74ABE.3691E080"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3028
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0041_01C74ABE.3691E080
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://t0m.free.fr/jdlv/jdlv_auto.htm
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Recherche automatis=E9e d'oscillateurs et de =
+navires</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-8859-1">
+<META content=3D"Thomas Morin" name=3DAuthor>
+<META content=3D"MSHTML 6.00.5730.11" name=3DGENERATOR>
+<META=20
+content=3D"Jeu de la Vie de Conway : algorithme de recherche =
+syst=E9matique de structures oscillantes ou mobiles."=20
+name=3DDescription>
+<META=20
+content=3D"jeu de la vie, conway, automate cellulaire, recherche =
+automatis=E9e, search, oscillateurs, navires, algorithme"=20
+name=3DKeyWords></HEAD>
+<BODY text=3D#430086 vLink=3D#8c37d9 aLink=3D#610488 link=3D#0000a4 =
+bgColor=3D#dadaff=20
+background=3Dhttp://t0m.free.fr/jdlv/vie_fond.gif>&nbsp;=20
+<CENTER>
+<TABLE cellSpacing=3D8 cols=3D7 cellPadding=3D0 width=3D"95%" =
+border=3D0>
+  <TBODY>
+  <TR vAlign=3Dcenter align=3Dmiddle>
+    <TD><FONT face=3DArial,Helvetica><A=20
+      =
+href=3D"http://t0m.free.fr/jdlv/jdlv_intro.htm">D=E9couvrir</A></FONT></T=
+D>
+    <TD><FONT face=3DArial,Helvetica><A=20
+      href=3D"http://t0m.free.fr/jdlv/jdlv_logprog.htm">Logiciels &amp;=20
+      programmation</A></FONT></TD>
+    <TD><FONT face=3DArial,Helvetica><A=20
+      href=3D"http://t0m.free.fr/jdlv/jdlv_liens.htm">Liens =
+Web</A></FONT></TD>
+    <TD><FONT face=3DArial,Helvetica><A=20
+      href=3D"http://t0m.free.fr/jdlv/jdlv_p.htm">Propri=E9t=E9s=20
+      remarquables</A></FONT></TD>
+    <TD><FONT face=3DArial,Helvetica><A=20
+      href=3D"http://t0m.free.fr/jdlv/jdlv_auto.htm">Recherche=20
+      automatis=E9e</A></FONT></TD>
+    <TD><FONT face=3DArial,Helvetica><A=20
+      =
+href=3D"http://t0m.free.fr/jdlv/jdlv_doc.htm">Documentation</A></FONT></T=
+D>
+    <TD><FONT face=3DArial,Helvetica><A=20
+      =
+href=3D"http://t0m.free.fr/jdlv/jdlv_zoo.htm">Zoo</A></FONT></TD></TR></T=
+BODY></TABLE></CENTER>
+<CENTER>
+<H1><A href=3D"http://t0m.free.fr/jdlv"><IMG height=3D72 alt=3D"Le jeu =
+de la Vie"=20
+src=3D"http://t0m.free.fr/jdlv/vie_titre.gif" width=3D559 =
+border=3D0></A><BR><FONT=20
+face=3DArial><FONT size=3D+3>Recherche automatis=E9e d'oscillateurs et =
+de=20
+navires</FONT></FONT></H1></CENTER>
+<CENTER>
+<H1><FONT face=3DArial><FONT size=3D+0>Derni=E8re mise =E0 jour le 14 =
+juin=20
+97</FONT></FONT></H1></CENTER>
+<CENTER>
+<HR width=3D"100%">
+</CENTER>
+<CENTER>
+<H3><FONT face=3DArial><A =
+href=3D"http://t0m.free.fr/jdlv/jdlv_auto.htm#Algo">Un=20
+algorithme</A></FONT></H3></CENTER>
+<CENTER>
+<H3><FONT face=3DArial><A =
+href=3D"http://t0m.free.fr/jdlv/jdlv_auto.htm#Util">Le=20
+mode d'utilisation</A></FONT></H3></CENTER>
+<CENTER>
+<H3><FONT face=3DArial><A=20
+href=3D"http://t0m.free.fr/jdlv/jdlv_auto.htm#Accel">L'acc=E9l=E9ration =
+de la=20
+recherche</A></FONT></H3></CENTER>
+<CENTER>
+<H3><FONT face=3DArial><A =
+href=3D"http://t0m.free.fr/jdlv/jdlv_auto.htm#Implem">Les=20
+impl=E9mentations (C et Pascal)</A></FONT></H3></CENTER>
+<CENTER>
+<H2>
+<HR width=3D"100%">
+<A name=3DAlgo></A><FONT face=3DArial>Un algorithme de recherche =
+d'oscillateurs et=20
+de navires</FONT></H2></CENTER><FONT face=3DArial>Il est possible =
+d'automatiser la=20
+recherche de certaines structures : les structures fixes, les =
+oscillateurs, et=20
+les navires.</FONT> <FONT face=3DArial>Une <A=20
+href=3D"http://t0m.free.fr/jdlv/search_program.txt">description =
+d=E9taill=E9e</A> (en=20
+anglais) d'un algorithme de recherche a =E9t=E9 propos=E9e par Dean =
+Hickerson.</FONT>=20
+<P><FONT face=3DArial>Cet algorithme consiste =E0 parcourir =
+it=E9rativement toutes les=20
+configurations satisfaisant les r=E8gles du jeu de la vie et des =
+contraintes=20
+fix=E9es par l'utilisateur.</FONT>=20
+<P><FONT face=3DArial><B>L'algorithme proc=E8de de la fa=E7on =
+suivante</B> : On=20
+cherche une structure de p=E9riode T s'inscrivant dans un rectangle de =
+dimensions=20
+donn=E9es.</FONT>=20
+<P><FONT face=3DArial>Au d=E9part, l'=E9tat de toutes les cases est =
+inconnu pour tous=20
+les instant de 0 =E0 T.</FONT> <BR><FONT face=3DArial>Ensuite le =
+programme cherche=20
+une case inconnue et tente de choisir un =E9tat pour celle-ci.</FONT>=20
+<UL type=3DDISC>
+  <LI><FONT face=3DArial><B>Soit cet =E9tat est coh=E9rent</B> : il =
+satisfait les=20
+  r=E8gles du jeu de la vie (=E0 la fois vis =E0 vis de ses successeurs =
+et de ses=20
+  pr=E9d=E9cesseurs) et les contraintes fix=E9es par l'utilisateur : =
+p=E9riodicit=E9,=20
+  d=E9placement, sym=E9trie. Un tel choix du programme fait sans =
+contrainte est un=20
+  <I>choix libre</I>.</FONT>=20
+  <P><FONT face=3DArial>Parfois, tel ou tel choix sur une case peut =
+forcer une=20
+  autre case (voisine, descendante ou anc=EAtre) =E0 prendre un =E9tat =
+donn=E9, dans ce=20
+  cas le programme met les cases concern=E9es dans l'=E9tat n=E9cessaire =
+(c'est un=20
+  <I>choix forc=E9</I>) puis examine les cons=E9quences de ces nouveaux=20
+  choix.</FONT>=20
+  <P><FONT face=3DArial>Lorsqu'on a aboutit a un =E9tat coh=E9rent, le =
+programme=20
+  cherche une autre case inconnue et r=E9it=E8re le processus.</FONT> =
+<BR>&nbsp;=20
+</P>
+  <LI><FONT face=3DArial><B>Soit cet =E9tat aboutit =E0 une =
+contradiction </B>-=20
+  (non-respect des r=E8gles du jeu de la vie ou non-p=E9riodicit=E9, par =
+exemple) - le=20
+  programme teste alors le choix oppos=E9 (qui est alors un <I>choix =
+forc=E9</I>).=20
+  Si celui-ci est non-contradictoire, l'algorithme cherche une autre =
+case=20
+  inconnue.</FONT> <BR><FONT face=3DArial>Mais si ce choix se r=E9v=E8le =
+=EAtre=20
+  contradictoire lui aussi, le programme annule tous ses choix =
+pr=E9c=E9dents=20
+  jusqu'au dernier choix libre effectu=E9 pour le changer en son =
+oppos=E9 (<I>choix=20
+  forc=E9</I>).</FONT></LI></UL><FONT face=3DArial>L'exploration =
+s'arr=EAte :</FONT>=20
+<UL>
+  <LI><FONT face=3DArial>soit lorsqu'il n'y a plus de case inconnue, on =
+a alors=20
+  obtenue une configuration coh=E9rente satisfaisant les contraintes =
+impos=E9es par=20
+  l'utilisateur. Cette configuration peut-=EAtre sauvegard=E9e et =
+l'exploration peut=20
+  =EAtre reprise en changeant le dernier choix libre effectu=E9.</FONT>=20
+  <LI><FONT face=3DArial>soit lorsque toutes les possibilit=E9s ont =
+=E9t=E9=20
+  essay=E9es.</FONT> </LI></UL><FONT face=3DArial>Cet algorithme permet =
+donc de=20
+trouver si il en existe des structures oscillantes, ou des =
+navires.</FONT>=20
+<BR><FONT face=3DArial>Une bonne partie des navires pr=E9sent=E9s dans =
+la s=E9rie=20
+d'articles <A=20
+href=3D"http://research.germany.eu.net:8080/~joke/rsc/ships_toc.html">Spa=
+ceships=20
+in Conway's Game of Life</A> par David I. Bell on =E9t=E9 d=E9couvert =
+par un programme=20
+appliquant cet algorithme.</FONT>=20
+<P><FONT face=3DArial>Ce type d'algorithme peut aussi tr=E8s simplement =
+=EAtre adapt=E9=20
+pour rechercher des ant=E9c=E9dents =E0 une structure donn=E9e. Il faut =
+placer la=20
+structure dont on recherche des ant=E9c=E9dents dans le rectangle =
+correspondant =E0 la=20
+p=E9riode T et ne pas imposer de contraintes quand =E0 la =
+p=E9riodicit=E9 de la=20
+structure.</FONT>=20
+<P>
+<HR width=3D"50%">
+<A name=3DUtil></A>
+<P><FONT face=3DArial>Il est possible d'utiliser un programme =
+r=E9alis=E9 sur ce=20
+mod=E8le selon deux approches :</FONT>=20
+<UL>
+  <LI><FONT face=3DArial><B>Recherche exhaustive</B> : En laissant =
+tourner un tel=20
+  programme jusqu'=E0 ce qu'il ait d=E9couvert toutes les structures =
+satisfaisant=20
+  les conditions fix=E9es.</FONT>=20
+  <P><FONT face=3DArial>Ce type de recherche n'est viable que pour des =
+surfaces et=20
+  des p=E9riodes de recherche petites.</FONT> <BR><FONT face=3DArial>En =
+effet=20
+  augmenter la zone de recherche, outre le fait que le co=FBt est =
+rapidement plus=20
+  =E9lev=E9 am=E8ne de plus, =E0 retrouver des r=E9sultats concernant =
+des zones plus=20
+  petites qui y sont incluses.</FONT>=20
+  <P><FONT face=3DArial>De plus plus on augmente la p=E9riode plus on =
+augmente le=20
+  temps mis par le programme pour d=E9tecter les contradictions entre la =
+premi=E8re=20
+  g=E9n=E9ration et la g=E9n=E9ration T.</FONT> <BR>&nbsp; </P>
+  <LI><FONT face=3DArial><B>Recherche avec intervention de =
+l'utilisateur</B> : On=20
+  peut aussi choisir de guider la recherche "=E0 la main"</FONT>=20
+  <P><FONT face=3DArial>En effet dans sa recherche syst=E9matique le =
+programme=20
+  parcourt plusieurs fois des structures semblables (par exemple =
+translat=E9es) ou=20
+  encore des structures inint=E9ressantes (du point de vue de celui qui=20
+  recherche).</FONT>=20
+  <P><FONT face=3DArial>En obligeant le programme =E0 revenir en =
+arri=E8re sur des=20
+  choix qu'il juge inint=E9ressants, l'utilisateur peut arriver plus =
+rapidement =E0=20
+  obtenir des structures int=E9ressantes satisfaisant les conditions =
+qu'il a=20
+  pos=E9es.</FONT></P></LI></UL>
+<HR width=3D"100%">
+<A name=3DAccel></A><B><FONT face=3DArial><FONT size=3D+1>Sur =
+l'acc=E9l=E9ration de la=20
+recherche.</FONT></FONT></B>=20
+<UL><FONT face=3DArial>Vous aurez remarqu=E9 dans quelle mesure le =
+co=FBt=20
+  algorithmique de ce type de recherche devient rapidement =
+prohibitif.</FONT>=20
+  <P><FONT face=3DArial>Dans un rectangle de n*m cases, il y a =
+pr=E9cis=E9ment 2^(n*m)=20
+  structures diff=E9rentes. Pour une recherche donn=E9e il y a donc au =
+maximum=20
+  2^(n*m) structures =E0 essayer. =C9videment seulement une petite =
+partie d'entre=20
+  elles satisfait r=E9ellement les conditions pos=E9es donc <B>plus le =
+programme=20
+  d=E9tecte rapidement les contradictions moins de temps il va perdre =
+sur des=20
+  structures non-satisfaisantes</B>.</FONT>=20
+  <P><FONT face=3DArial>En fait une contradiction due =E0 un choix sur =
+une case=20
+  donn=E9e est d=E9tect=E9e d'autant plus t=F4t que le programme repasse =
+au voisinage de=20
+  cette case. La fa=E7on dont le programme choisit une case dont =
+l'=E9tat est=20
+  inconnue plut=F4t qu'une autre est donc d=E9terminante.</FONT>=20
+  <P><FONT face=3DArial>Pour acc=E9l=E9rer la recherche il faut donc =
+soit guider le=20
+  programme =E0 la main, soit impl=E9menter une routine charg=E9e de =
+faire des choix=20
+  "judicieux" ; une quantit=E9 d'ordres de parcourt peu =EAtre=20
+imagin=E9e...</FONT></P></UL>
+<HR width=3D"100%">
+<A name=3DImplem></A><B><FONT face=3DArial><FONT size=3D+1>Les=20
+impl=E9mentations</FONT></FONT></B>=20
+<UL><FONT face=3DArial>Une impl=E9mentation en C (<A=20
+  href=3D"http://t0m.free.fr/jdlv/lifesearch.tar.gz">format TAR =
+compress=E9</A> ou=20
+  <A href=3D"http://t0m.free.fr/jdlv/lifesearch.zip">ZIP</A>) de cet =
+algorithme a=20
+  =E9t=E9 r=E9alis=E9e par David Bell.</FONT> <BR><FONT =
+face=3DArial>Elle est accompagn=E9e=20
+  de la description de l'algorithme qui est aussi <A=20
+  href=3D"http://t0m.free.fr/jdlv/search_program.txt">accessible =
+s=E9par=E9ment=20
+  ici</A>.</FONT> <FONT face=3DArial>Vous trouverez <A=20
+  =
+href=3D"http://www.canb.auug.org.au/~dbell/programs/lifesrc-3.5.tar.gz">s=
+a=20
+  derni=E8re version</A> =E0 partir de <A=20
+  href=3D"http://www.canb.auug.org.au/~dbell/">sa page</A>.</FONT>=20
+  <P><FONT face=3DArial>J'en ai moi-m=EAme r=E9alis=E9 une <A=20
+  href=3D"http://t0m.free.fr/jdlv/lifesp.pas">impl=E9mentation, en Turbo =
+
+  Pascal</A>.</FONT> <BR><FONT face=3DArial>Elle manque de finition mais =
+je pense=20
+  qu'elle doit =EAtre =E0 peu pr=E8s compr=E9hensible. <A=20
+  href=3D"mailto:thomas.morin-bretagne.fr">N'h=E9sitez pas</A> =E0 me =
+poser des=20
+  questions, me proposer des modifications, me rapporter des=20
+bugs...</FONT></P></UL>
+<HR width=3D"100%">
+<FONT face=3DArial><A =
+href=3D"http://t0m.free.fr/jdlv/jdlv.htm">Retourner =E0 la page=20
+principale</A></FONT> </BODY></HTML>
+
+------=_NextPart_000_0041_01C74ABE.3691E080
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://t0m.free.fr/jdlv/vie_titre.gif
+
+R0lGODlhLwJIAPcAAAAApRAQpTEAWjEIWjEQWjEpnDExtTkQWjkQYzkYY0IYY0IYa0Iha0JCvUoh
+a0ohc0opc0o5lEo5pVIIpVIpc1Ipe1Ixe1IxhFIxjFoIpVoYpVoxhFo5e1o5hFo5jFpChFpCjGMY
+pWMYrWMhpWMhrWMppWMprWMxnGMxpWM5jGM5lGM5nGNChGNCjGNClGNCnGNKjGshrWsprWsptWsx
+pWsxrWsxtWs5nGs5pWs5rWtClGtCnGtCpWtKjGtKlGtKnGtKpWtSjGtSlHMxtXM5rXM5tXM5vXNC
+pXNCrXNCtXNCvXNKpXNKrXNSlHNSnHNSpXNalHNanHNapXtCtXtCvXtKtXtKvXtSrXtStXtapXta
+rXtatXtjnHtjpXtjrXtrnHtrpYRSvYRSxoRatYRavYRaxoRjtYRjvYRrpYRrrYRrtYRznIRzpYRz
+rYR7pYxaxoxjvYxjxoxjzoxrtYxrvYxrxoxzrYxztYxzvYx7nIx7pYx7tYx7vYyEpZRrxpRrzpRz
+vZRzxpRzzpR7tZR7vZR7xpSEvZSMtZSMzpSUpZxzzpxz1px7zpx71pyExpyEzpyMvZyMxpyUtZyU
+xpyU3pycpZycrZyctaWE1qWE3qWMzqWM1qWM3qWUxqWUzqWU1qWcraWctaWczqWlraWltaWlvaWl
+xq2M3q2U3q2U562czq2c1q2c3q2lxq2lzq2l1q2tva2txrWc3rWc57Wl1rWl3rWl57WtzrWt1rWt
+3rWt57W1xrW1zr2l572l772t3r2t572t77213r21572177291r293r29572978a178a958a978a9
+98bG58bG787G787G987O787O99bO99bW99ra/97W/97e////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////yH5BAEAANUALAAAAAAvAkgA
+QAj+AKsJHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHCmQGjVpJkmqLGgSJbWV
+MGN6bJlS5khqz44dc/bSZsOT0lAqpBZN2TFlQn1eBNqT4klluTodWrKjg4WrWLN2cKFlDBw4SUgB
+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
+AAA7
+
+------=_NextPart_000_0041_01C74ABE.3691E080
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://t0m.free.fr/jdlv/vie_fond.gif
+
+R0lGODlh+gHgAfcAANra/7Cw////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////yH5BAEAAAAALAAAAAD6AeAB
+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
+EAAAOw==
+
+------=_NextPart_000_0041_01C74ABE.3691E080--

@@ -1,0 +1,1957 @@
+From: <Enregistré par Windows Internet Explorer 7>
+Subject: applet du jeu de la vie d'apres Conway
+Date: Wed, 7 Feb 2007 13:43:36 +0100
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01C74ABD.F73FDAE0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3028
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://membres.lycos.fr/dlegland/life/life.htm
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>applet du jeu de la vie d'apres Conway</TITLE>
+<SCRIPT language=3Djavascript>=0A=
+=0A=
+myreg=3Dnew RegExp("lycos\.fr","i");=0A=
+if ( !myreg.test("'"+top.location+"'") ) {=0A=
+	nwreg=3Dnew RegExp ("http://([^/]+)?(/([a-z0-9A-Z\-\_]+)?[^']+)","i");=0A=
+	rn=3Dnwreg.exec("'"+self.location+"'");=0A=
+	if (parent.frames.length=3D=3D2) { top.location=3D"http://" + rn[1] + =
+rn[2]; }=0A=
+	else { top.location=3D"http://" + rn[1] + "/" + rn[3]; }=0A=
+}=0A=
+=0A=
+if(window =3D=3D window.top) {=0A=
+        var address=3Dwindow.location;=0A=
+        var s=3D'<html><head><title>'+'</title></head>'+=0A=
+        '<frameset cols=3D"*,140" frameborder=3D"0" border=3D"0" =
+framespacing=3D"0" onload=3D"return true;" onunload=3D"return true;">'+=0A=
+        '<frame src=3D"'+address+'?" name=3D"memberPage" =
+marginwidth=3D"0" marginheight=3D"0" scrolling=3D"auto" noresize>'+=0A=
+		'<frame =
+src=3D"http://ads.multimania.lycos.fr/ad/google/frame.php?_url=3D'+escape=
+(address)+'&gg_bg=3D&gg_template=3D&mkw=3Djeu+de+la+vie&cat=3Ddata_proces=
+sing" name=3D"LycosAdFrame"  marginwidth=3D"0" marginheight=3D"0" =
+scrolling=3D"auto" noresize>'+=0A=
+        '</frameset>'+=0A=
+        '</html>';=0A=
+=0A=
+        document.write(s);      =0A=
+}=0A=
+</SCRIPT>
+
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-8859-1">
+<META content=3D"MSHTML 6.00.5730.11" name=3DGENERATOR>
+<META content=3D"David Legland" name=3DAuthor>
+<META content=3D"une version Java du celebre jeu de la vie  de Conway !" =
+
+name=3DDescription>
+<META=20
+content=3D"programmation, java, jeu de la vie, automate cellulaire, =
+Conway, game of life, applet,David Legland"=20
+name=3DKeyWords>
+<SCRIPT src=3D"http://membres.lycos.fr/dlegland/scripts.js"></SCRIPT>
+</HEAD>
+<BODY background=3Dhttp://membres.lycos.fr/dlegland/images/fond01.jpg =
+nosave>
+<SCRIPT language=3Djavascript>=0A=
+<!--=0A=
+writeMenu(menu_info);=0A=
+-->=0A=
+</SCRIPT>
+
+<P><BR><BR>&nbsp;=20
+<CENTER>
+<H1>LE JEU DE LA VIE</H1></CENTER>
+<P><BR>Le jeu de la vie est un ensemble de r=E8gles =E9l=E9mentaires qui =
+donnent=20
+naissancent =E0 une infinit=E9 de possibilit=E9s. Il fait partie de la =
+(nombreuse !)=20
+famille des <B>automates cellulaires</B>. Formul=E9 au d=E9part comme un =
+probl=E8me=20
+math=E9matique, il a pris une dimension exceptionnelle avec le =
+d=E9veloppement de=20
+l'informatique, et on a vu appara=EEtre une multitude de programmes =
+rivalisant de=20
+vitesse et d'ing=E9niosit=E9. Dans le m=EAme temps, les propri=E9t=E9s =
+math=E9matiques du=20
+jeu de la vie ont =E9t=E9 d=E9velopp=E9es jusqu'=E0 un point qu'on =
+imaginait pas =E0=20
+l'origine.=20
+<P>Je vous propose une version Java du jeu de la vie, qui bien que =
+simple et non=20
+optimis=E9e, vous permet de d=E9couvrir les bases de ce grand clasique =
+de=20
+l'informatique. Vous pouvez telecharger <A=20
+href=3D"http://membres.lycos.fr/dlegland/life/LifeApplet.zip">l'applet</A=
+>, ainsi=20
+que <A =
+href=3D"http://membres.lycos.fr/dlegland/life/LifeApplet-src.zip">ses=20
+sources</A>. <BR>&nbsp;=20
+<P><APPLET height=3D300 width=3D400 code=3DLife.class>
+d&eacutesol&eacute -navigateur non compatible java&nbsp</APPLET> =
+<BR>&nbsp;=20
+<H3>Principe du jeu de la vie :</H3>Le principe est simple : on a une =
+colonie de=20
+bact=E9ries, ou de cellules, r=E9parties al=E9atoirement. A chaque =
+g=E9n=E9ration, les=20
+cellules vont survivre, na=EEtre ou dispara=EEtre en fonction de leur =
+entourage :=20
+<UL>
+  <LI>Si une cellule est seule ou avec seulement une voisine (dans les 8 =
+
+  directions possibles), elle meurt de solitude. snif.=20
+  <LI>Si une cellule a 2 ou 3 voisines, elle survit.=20
+  <LI>Si une cellule a plus de 3 voisines, elle meurt =E0 cause de la=20
+  surpopulation.=20
+  <LI>Enfin, si 3 cellules entourent une case vide, elles donnent =
+naissance =E0 un=20
+  merveilleux petit rejeton ! </LI></UL>
+<P><BR>Avec ces principes assez simples (d=E9fini par un math=E9maticien =
+du nom de=20
+<B>Conway</B>), on assiste =E0 un fourmillement d'activit=E9, avec =
+parfois la=20
+cr=E9ation de zones stables, ou des colonies qui se d=E9placent, ou =
+encore des=20
+extinctions massives ... <BR>&nbsp;=20
+<H3>Configurations typiques de cellules :</H3>Plusieurs configurations =
+peuvent=20
+=EAtre reconnues :=20
+<UL>
+  <LI><B><U>Les structures stables</U></B>. Une fois dans cette =
+configuration,=20
+  aucune cellule ne nait plus, ni aucune ne meurt. Sauf si elles sont =
+perturb=E9es=20
+  par des voisines, =E9videmment. Voici les configurations de ce genre =
+les plus=20
+  simples : <BR>&nbsp;=20
+  <TABLE cols=3D9 border=3D0>
+    <TBODY>
+    <TR>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/stable01.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/stable02.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/stable03.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/stable04.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/stable05.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/stable06.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/stable07.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/stable08.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/stable09.gif"=20
+    width=3D64></TD></TR></TBODY></TABLE>
+  <P>Comme on le voit sur les derniers exemples, on peut cr=E9er des =
+structure=20
+  stables aussi grandes que l'on d=E9sire, juste en r=E9p=E9tant un =
+m=EAme=20
+  motif.</P></LI></UL>
+<UL>
+  <LI><B><U>Les bascules.</U></B> Elles oscillent entre 2, ou plus =
+=E9tats=20
+  diff=E9rents, mais reviennent toujours =E0 leur =E9tat de d=E9part. =
+Les plus simples =E0=20
+  trouver sont les bascules de p=E9riode 2 : <BR>&nbsp;=20
+  <TABLE cols=3D2 border=3D0>
+    <TBODY>
+    <TR>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/basc1-1.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/basc1-2.gif"=20
+    width=3D64></TD></TR></TBODY></TABLE>
+  <P>Une autre bascule de p=E9riode 2, qui "clignote" : <BR>&nbsp;=20
+  <TABLE cols=3D2 width=3D70 border=3D1>
+    <TBODY>
+    <TR>
+      <TD><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/basc2-1.gif" =
+width=3D64></TD>
+      <TD><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/basc2-2.gif"=20
+    width=3D64></TD></TR></TBODY></TABLE>
+  <P>On peut cr=E9er une bascule sur une p=E9riode de xx temps en =
+tra=E7ant une ligne=20
+  de 10 cellules align=E9es, et en faisant it=E9rer. Apr=E8s 2 =
+it=E9rations, on obtient=20
+  une structure qui se rep=E8te tous les 15 cycles. Essayez ! <BR>Pour =
+finir sur=20
+  les bascules, essayez cette figure : <BR><IMG height=3D80=20
+  src=3D"http://membres.lycos.fr/dlegland/life/basc3-1.gif" =
+width=3D80></P></LI></UL>
+<UL>
+  <LI><B><U>Les Navires. </U></B>Enfin, les structures les plus =
+troublantes sont=20
+  celles qui se d=E9placent en suivant une succession logique. On les =
+appelle=20
+  planeurs, navires, ou parfois vaisseaux spatiaux (spaceships). La =
+figure de ce=20
+  type la plus connue est celle qui reproduit des pi=E8ces de Tetris =
+plus une=20
+  cellule : <BR>&nbsp;=20
+  <TABLE cols=3D5 border=3D0>
+    <TBODY>
+    <TR>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/bouge1-1.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/bouge1-2.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/bouge1-3.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/bouge1-4.gif" =
+width=3D64></TD>
+      <TD width=3D70 height=3D70><IMG height=3D64=20
+        src=3D"http://membres.lycos.fr/dlegland/life/bouge1-5.gif"=20
+    width=3D64></TD></TR></TBODY></TABLE>
+  <P>On constate bien que la derni=E8re configuration est la m=EAme que =
+la premi=E8re,=20
+  mais d=E9cal=E9e d'un pixel vers le haut et la droite. <BR>Voici une =
+autre=20
+  configuration, d'une p=E9riode 4 aussi : <BR>&nbsp;=20
+  <TABLE width=3D70>
+    <TBODY>
+    <TR>
+      <TD><IMG height=3D50=20
+        src=3D"http://membres.lycos.fr/dlegland/life/bouge2-1.gif" =
+width=3D64></TD>
+      <TD><IMG height=3D50=20
+        src=3D"http://membres.lycos.fr/dlegland/life/bouge2-2.gif" =
+width=3D64></TD>
+      <TD><IMG height=3D50=20
+        src=3D"http://membres.lycos.fr/dlegland/life/bouge2-3.gif" =
+width=3D64></TD>
+      <TD><IMG height=3D50=20
+        src=3D"http://membres.lycos.fr/dlegland/life/bouge2-4.gif"=20
+    width=3D64></TD></TR></TBODY></TABLE></P></LI></UL>
+<H3>Autres figures :</H3>Ces 3 types de base ne sont qu'une introduction =
+! En=20
+effet il existe quantit=E9 d'autres entit=E9s avec des noms parfois =
+exotiques : le=20
+lapin, le canon =E0 planeurs, des jardins d'eden ... Certains croissent=20
+ind=E9finiment, d'autres se d=E9placent en laissant des traces, d'autres =
+font des=20
+aller-retours... On peut trouver des collections de figures sur =
+internet.=20
+<BR>&nbsp;=20
+<P>Voil=E0 donc une petite introduction pour vous permettre d'explorer =
+vous-m=EAme=20
+les diff=E9rentes possibilit=E9s du jeu de la vie. Si vous voulez aller =
+plus loin,=20
+je vous propose quelques liens. Bon amusement ! <BR>&nbsp;=20
+<UL>
+  <LI><A=20
+  =
+href=3D"http://t0m.free.fr/jdlv/jdlv.htm">http://t0m.free.fr/jdlv/jdlv.ht=
+m</A> :=20
+  page "morte" mais tr=E8s riche d'information, surtout sur du point de =
+vue=20
+  math=E9matique.=20
+  <LI><A=20
+  =
+href=3D"http://chronomath.irem.univ-mrs.fr/Anx3/jdlv.html">http://chronom=
+ath.irem.univ-mrs.fr/Anx3/jdlv.html</A>=20
+  : un peu succint.=20
+  <LI><A=20
+  =
+href=3D"http://www.webdo.ch/hebdo/hebdo_1996/hebdo_01/viart_01_programmes=
+.html">http://www.webdo.ch/hebdo/hebdo_1996/hebdo_01/viart_01_programmes.=
+html</A>=20
+
+  <LI><A=20
+  =
+href=3D"http://alife.santafe.edu/alife/topics/cas/ca-faq/lifefaq/lifefaq.=
+html">http://alife.santafe.edu/alife/topics/cas/ca-faq/lifefaq/lifefaq.ht=
+ml</A>=20
+
+  <LI><A href=3D"http://www.kagi.com/">http://www.kagi.com/</A>(pour =
+Mac) : dans=20
+  les produits, rechercher puis t=E9l=E9charger LifeLab.=20
+  <LI><A=20
+  =
+href=3D"http://www.cs.jhu.edu/~callahan/lifepage.html">http://www.cs.jhu.=
+edu/~callahan/lifepage.html</A>=20
+  : une page qui fait autorit=E9=20
+  <LI><A=20
+  =
+href=3D"http://www.mindspring.com/~alanh/life/">http://www.mindspring.com=
+/~alanh/life/</A>=20
+  </LI></UL><!-- Debut du Footer =
+------------------------------------------------- -->
+<SCRIPT language=3Djavascript>=0A=
+<!--=0A=
+writeFooter(menu_info);=0A=
+-->=0A=
+</SCRIPT>
+<A title=3D"Mesurez votre audience" =
+href=3D"http://www.xiti.com/xiti.asp?s=3D111676">
+<SCRIPT type=3Dtext/javascript>=0A=
+<!--=0A=
+Xt_param =3D 's=3D111676&p=3D';=0A=
+Xt_r =3D document.referrer;=0A=
+Xt_h =3D new Date();=0A=
+Xt_i =3D '<img width=3D"39" height=3D"25" border=3D"0" ';=0A=
+Xt_i +=3D 'src=3D"http://logv22.xiti.com/hit.xiti?'+Xt_param;=0A=
+Xt_i +=3D =
+'&hl=3D'+Xt_h.getHours()+'x'+Xt_h.getMinutes()+'x'+Xt_h.getSeconds();=0A=
+if(parseFloat(navigator.appVersion)>=3D4)=0A=
+{Xt_s=3Dscreen;Xt_i+=3D'&r=3D'+Xt_s.width+'x'+Xt_s.height+'x'+Xt_s.pixelD=
+epth+'x'+Xt_s.colorDepth;}=0A=
+document.write(Xt_i+'&ref=3D'+Xt_r.replace(/[<>"]/g, '').replace(/&/g, =
+'$')+'" title=3D"Analyse d\'audience">');=0A=
+//-->=0A=
+</SCRIPT>
+<NOSCRIPT>Mesure d'audience ROI frequentation par <IMG height=3D25=20
+alt=3D"Analyse d'audience" =
+src=3D"http://logv22.xiti.com/hit.xiti?s=3D111676&amp;p=3D"=20
+width=3D39> </NOSCRIPT></A>
+<SCRIPT src=3D"http://hit.multimania.lycos.fr/tracker.js"></SCRIPT>
+
+<SCRIPT>LycosHit()</SCRIPT>
+<PRE></PRE><XMP></XMP></NOSCRIPT>
+<SCRIPT language=3Djavascript=20
+src=3D"http://ads.multimania.lycos.fr/ad/test_frame_size.js"></SCRIPT>
+
+<SCRIPT language=3Djavascript>=0A=
+if (!AD_clientWindowSize()) {=0A=
+        document.write("<NOSC"+"RIPT>");=0A=
+}=0A=
+</SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>=0A=
+        function setCookie(name, value, expires, path, domain, secure) {=0A=
+           var curCookie =3D name + "=3D" + escape(value) +=0A=
+             ((expires) ? "; expires=3D" + expires.toGMTString() : "") +=0A=
+             ((path) ? "; path=3D" + path : "") +=0A=
+             ((domain) ? "; domain=3D" + domain : "") +=0A=
+             ((secure) ? "; secure" : "");=0A=
+           document.cookie =3D curCookie;=0A=
+        }=0A=
+=0A=
+        var ad_url =3D =
+"http://ads.multimania.lycos.fr/ad/google/frame.php?_url=3D"+escape(self.=
+location)+"&gg_bg=3D&gg_template=3D&mkw=3Djeu+de+la+vie&cat=3Ddata_proces=
+sing";=0A=
+        var ref=3Dwindow.document.referrer;=0A=
+=0A=
+        if(parent.LycosAdFrame) {=0A=
+                if(parent.memberPage && parent.memberPage.document.title =
+) {=0A=
+                        =
+parent.document.title=3Dparent.memberPage.document.title;=0A=
+                }=0A=
+=0A=
+                if(parent.LycosAdFrame && parent.LycosAdFrame.location =
+&& (ref !=3D "" && (ref+"?" !=3D window.location) && =
+(ref.substr(ref.length-1,1) !=3D "/")) ) {=0A=
+						parent.LycosAdFrame.location.replace(ad_url);=0A=
+                }=0A=
+                setCookie("adFrameForcePHP",0,0," ");=0A=
+				parent.document.body.cols =3D "*,140";=0A=
+        }=0A=
+        else if(top.LycosAdFrame && top.LycosAdFrame.location) {=0A=
+                if ((ref !=3D "" && (ref+"?" !=3D top.window.location) =
+&& (ref.substr(ref.length-1,1) !=3D "?"))) {=0A=
+						top.LycosAdFrame.location.replace(ad_url);=0A=
+                }=0A=
+                setCookie("adFrameForcePHP",0,0," ");=0A=
+				top.document.body.cols =3D "*,140";=0A=
+        }=0A=
+        else {=0A=
+                if (!window.opener) {=0A=
+                        setCookie("adFrameForcePHP",1,0," ");=0A=
+                }=0A=
+                else {=0A=
+                        setCookie("adFrameForcePHP",0,0," ");=0A=
+                }=0A=
+        }=0A=
+		=0A=
+	if (window.top.location.href.indexOf("http://membres.lycos.fr")!=3D-1) {=0A=
+		ad_frame =3D 1 ;=0A=
+		window.top.document.body.cols=3D"*,140" ;=0A=
+	}=0A=
+=0A=
+function resizeGoogleAdFrame() {=0A=
+	window.top.document.body.cols =3D "*,140";=0A=
+}=0A=
+=0A=
+=0A=
+	if (ad_frame =3D=3D 1 && AD_clientWindowSize()) {=0A=
+		setInterval("resizeGoogleAdFrame()", 30);=0A=
+	}=0A=
+		=0A=
+</SCRIPT>
+
+<SCRIPT language=3Djavascript=20
+src=3D"http://ads.multimania.lycos.fr/ad/popunder_lycos_update.php?cat=3D=
+data_processing&amp;CC=3Dfr"></SCRIPT>
+
+<SCRIPT=20
+src=3D"http://ads.multimania.lycos.fr/ad/ad.php?cat=3Ddata_processing&amp=
+;mkw=3Djeu+de+la+vie&amp;CC=3Dfr&amp;ord=3D260b8cc8&amp;adpref=3D"=20
+type=3Dtext/javascript></SCRIPT>
+<!-- START RedSheriff Measurement V5.01 --><!-- COPYRIGHT 2002 =
+RedSheriff Limited -->
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--=0A=
+  var _rsCI=3D'lycos-fr';=0A=
+  var _rsCG=3D'data_processing';=0A=
+  var _rsDT=3D1;=0A=
+  var _rsSI=3Descape(window.location);=0A=
+  var _rsLP=3Dlocation.protocol.indexOf('https')>-1?'https:':'http:';=0A=
+  var _rsRP=3Descape(document.referrer);=0A=
+  var _rsND=3D_rsLP+'//secure-uk.imrworldwide.com/';=0A=
+=0A=
+  if (parseInt(navigator.appVersion)>=3D4) {=0A=
+    var _rsRD=3D(new Date()).getTime();=0A=
+    var _rsSE=3D0;=0A=
+    var _rsSV=3D'';=0A=
+    var _rsSM=3D0;=0A=
+    _rsCL=3D'<scr'+'ipt language=3D"JavaScript" type=3D"text/javascript" =
+src=3D"'+_rsND+'v5.js"><\/scr'+'ipt>';=0A=
+  } else {=0A=
+    _rsCL=3D'<img =
+src=3D"'+_rsND+'cgi-bin/m?ci=3D'+_rsCI+'&cg=3D'+_rsCG+'&si=3D'+_rsSI+'&rp=
+=3D'+_rsRP+'">';=0A=
+  }=0A=
+  document.write(_rsCL);=0A=
+//--></SCRIPT>
+<NOSCRIPT><IMG alt=3D""=20
+src=3D"http://secure-uk.imrworldwide.com/cgi-bin/m?ci=3Dlycos-fr&amp;cg=3D=
+data_processing">=20
+</NOSCRIPT><!-- END RedSheriff Measurement V5 --></BODY></HTML>
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/stable01.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACd4yPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHEUDXtOzYNt7oNc/w3YAKIYBYFCITxiWiiYMmfSwpU7myPrEq7cFrAgfEJDF5ZOam0tSoenmW
+xWNzWP11d+Vbe6f/DxgoOEhYaHiImKi4yNjo+AgZKTlJiVAAADs=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/stable02.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACi4yPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHEUDXtOzYNt7oNc/w3YAKIYBYFCITxiWiiYMmfSwpU7myPrEq7cFrAgfEJDF5ZOam0tSsetvu
+vr/zcH18L9/PIrauupeHFhi3RvgXJSjDF8MI4/gC6SLZQglY6JSpucnZ6fkJGio6Slpqeoo6UQAA
+Ow==
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/stable03.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACfoyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHEUDX9g3IBs7XetDr/YK8IfFmPPp0SluyyRJOpCLqrDiyQrQfrsPbATPEG7LCnEEj1Bf2Dqtq
+LmVy2lN5P+aJ+2DfXVKX80NYaHiImKi4yNjo+AgZKTlJWWl5iZmpuelYAAA7
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/stable04.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAAClYyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHEUDX9g3IBs7XetDr/YK8IfFmPPp0SluyyRJOpCLqrDiyQrQfrsPbATPEG7LCnEEj1Bf2DluF
+X3EkN1AOstspenzX/wUYJjhGWGZ4hpimuMb415TDBBkpM0kZY/mkpHnESeQZ9CM6SlpqeoqaqrrK
+2ur6ChsrO1IAADs=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/stable05.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACY4yPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvH8kzX9o3n+o4B/g8MAmjC4o9oLCKTwSXzOHs2o1KorGqNYX1Oaff5ZYaTY2NZScXy1uy2+w2P
+y+f0uv2Oz+v3/L7/D3hRAAA7
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/stable06.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACfYyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHCUDX9g3IBs7XetDr/YK8IfFmPPp0Sluy+XQuhCuqwprCIrQn7q5YBV/FWfLW3EV/cSwvUN1q
+LmVyWvR4J+aDe3e73gf3M0hYaHiImKi4yNjo+AgZKTlJWWl5iZmpaVgAADs=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/stable07.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACi4yPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHEUDXtOzYNt7oNc/w3YAKIYBYFCITxiWiiYMmfSwpU7myPrEq7cFrAgfEJDF5ZOam0tSoetvu
+vr/zcH18L9/PIrauupeHFhi3RvjnVrjEF8MI4/gC6SLZQgmo6JSpucnZ6fkJGio6SlpqeoqqUAAA
+Ow==
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/stable08.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAAC1YxvoKvoD6OckDGKs3527Q9GXROW4QiY6oau
+LtW+MjfOa0x3doY7/S6qVYRAye9wLCKSAaaySfRFn8sp0kqF6obbLIbpVIKx1HHXmyCHi2YLunqG
+u9/p+NWebV/oRjX5qefBF0hCR5gy6IdXpjhn2Lj3uLj2dsin5Si1CAgpKJkpF1nZWTg6+SdGivgp
+Gup5qQl6J5unemmZeLqZqkvL2Nvqhcv66loKOxtc58sJXCxsm+tLuTNsOo3KFk18nPyMTI2MqSye
+w1zu3Y0eS76+3O4eDk5WAAA7
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/stable09.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACuoyPqcvtD6OctNqLs968+w+G4sgB5ommAEmp
+7slO7xtLs1tHt5pDe9p7/FBBxxBWZNAWy2Az8cxFD9NYNXAlXbOjLa7o5YG/Cq6TDEVL1VS21Y2F
+a+HmUBg4FpflXTpfdEeUxOSn1xOIdGaIUAeCaJL0uJKHt7dYIxlZWDnIuCmoyOl5+UYaZzpn2viR
+SQmahtqn+mf3mdjZdoQLO7Q72utrcAQZfAocPDyJPFxs/NMMHS09TV1tfT1dAAA7
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/basc1-1.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACaoyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHEUDXtOzYNt7oNc/w3YAKIYBYFCITxiWi6TRAo1NndXlFZolbYJf3xYVl41gZdn6lXetWm/WO
+yuf0uv2Oz+v3/L7/DxgoOEhYaHg4VwAAOw==
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/basc1-2.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACW4yPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvH8kzX9o3n+g4B/g8MCn+sofFYPCqByeWy6USuos8pVaq6YnncrvcLDovH5LL5jE6r1+y2+w2P
+y+f0uv2+KgAAOw==
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/basc2-1.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACe4yPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHCUDX9g3IBs7XetDr/YK8IfFmPPp0Sluy+XT+FsKpompFYLO7Ivew5Yaz42+mPEVHl2Y109uG
+f90yeqrJjuFpa2I/+GeHspfzhhcoZ6a4yNjo+AgZKTlJWWl5iclVAAA7
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/basc2-2.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACeIyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHCUDX9g3IBs7XetDr/YK8IfFmPPp0Sluy+VRGj1NiNXgVMpu0bHHL/VG4XTDULEVT1VY21q2V
+kXPwr5zsxeWRdX2ffxf25yRWaHiImKi4yNjo+AgZKTlJWYlQAAA7
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/basc3-1.gif
+
+R0lGODlhUABQAIAAAAAAAP///ywAAAAAUABQAAAC/oyPqcvtD6OctNqLs968+w+G4kiW5mkC6qqi
+KMu6J7zKKQ3YJZ7rI+/74YIiIBFjVCSPjSXCyVQOF9DocyqlWZvYRHUb+H634i74UNZaxxN20Xxx
+h+QQ+sfuwHf0DP7GnwWjA+gFd6OmQQiiiGa440jBaCEZBimEmEEZaSmh2cYZ4dkJWkd6Z5qH+oiJ
+pMpBKRrqSjWbWFvIOnN7lXso+LcbF2wQW9pbUSx8vLl8+Wvb/BYtO704XFl9mp26vXedzP2cec0s
+3tpNkmZ+hr1OTO4cQ4tuoy7P3ngM7q0PL+3e7h6+gDXmARyY7yBCLvQQ7hvkj8nDehGPTJRxcaHG
+DI0cO3r8CDKkSBMFAAA7
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/bouge1-1.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACbYyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvH8kzX9o3n+g4B/g8MCn+sofFYPCqByeWy6USuos8pVaq6YnNGXnf31YW5Q28ZfBanY2Nc+/a2
+xWtzWn12l+V5/L7/DxgoOEhYaHiImKgYUgAAOw==
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/bouge1-2.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACfYyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHEUDXtOzYNt7oNc/w3YAKIYBYFCITxiWi6TQYobKpEmf18bK6LfeH/Q6r4mNYzKIyryr1k51y
+H+QmesBOsuNHejiqr7UC2BVVaHiImKi4yNjo+AgZKTlJWWl5iZmp6VgAADs=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/bouge1-3.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACeoyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHEUDX9g3IBs7XetDr/YK8IfFmPPp0SluyyRIupCpqworCHrQmLrC48npJYnDVfEVn1Vv2b+d+
+j5nxp/OtmMv0MT7MjxcoOEhYaHiImKi4yNjo+AgZKTlJWWl5WVkAADs=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/bouge1-4.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACcoyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHEUDX9g3IBs7XetDr/YK8IfFmPPp0Sluy+WM0l7Ip7anEHrVEbtArZFpZ4WiibD6g08AiW+1+
+t3HyXfy9ruv3/L7/DxgoOEhYaHiImKi4yNjo+BhTAAA7
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/bouge1-5.gif
+
+R0lGODlhQABAAIAAAAAAAP///ywAAAAAQABAAAACcYyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+7gvHEUDX9o3XbM73ew+0/YLBIdG3OhaTSqSq6ZQteNIGtTrNYbO4reLqPYDDgXHY/EJv1Vh21S2F
+y+QxOsxOzuv3/L7/DxgoOEhYaHiImKi4yNjo6FgAADs=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/bouge2-1.gif
+
+R0lGODlhQAAyAIAAAAAAAP///ywAAAAAQAAyAAACeoyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+LgPE8kzXNmrn+ozvft37CQHBoa9o1CGTN1Dz8vREK1NOdXLVZCNbTPfxtYQbY0p5cXalW2tWe/VW
+xVPzJdEJ5OZN5bqkv1cCSGP3F0gyyHOSKPPi+AgZKTlJWWl5CVEAADs=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/bouge2-2.gif
+
+R0lGODlhQAAyAIAAAAAAAP///ywAAAAAQAAyAAACeIyPqcvtD6OctNqLs968+w+GYgKU5nmOF8qa
+qtW2bxWzM1Wj95Sne9Rz/UjBYmlnNCKTwSUz53zGolLbrVqjZhVKUJfY9BYXX0/5cOakA2vNup15
+j4cION1gv+fp+2H/96c1dUdYaHiImKi4yNjo+AgZKTlJWclYAAA7
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/bouge2-3.gif
+
+R0lGODlhQAAyAIAAAAAAAP///ywAAAAAQAAyAAACh4yPqcvtD6OctNqLs968+w+GIECWgGSWopKS
+aLsm7RnNMWLX8G3kkH8DOoQrIsPI2yCTrxQzs3w+otIGtbq4YmW7j/bY9Xyz4c6YVeacuc5RerL+
+vZumUPxwr8z2/HqyD5hHEUio8ldIyISYeLjYp+j4uDVJWWl5iZmpucnZ6fkJGio6SrpRAAA7
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/life/bouge2-4.gif
+
+R0lGODlhQAAyAIAAAAAAAP///ywAAAAAQAAyAAACeoyPqcvtD6OctNqLs968+w+G4kiW5omm6sq2
+bgjE8jy/C43LtpLne9LD/RBB2vBQrB0DSd2pGbtBYVNe9QMFSJtUrtWLvRLFnew22UV/1eEsuOQm
+j+JvEp0NvwdR+v2z7+NitjR4VDh0+JO4s2jTuAQZKTlJWWl5uVQAADs=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: http://logv22.xiti.com/hit.xiti?s=111676&p=
+
+R0lGODlhJwAZALMPAP/mhf/ga//dW//ic//jev7eYurLVObMZuDDU/3aVcUuGeeZVZR/MLYAAP//
+/////yH5BAEAAA8ALAAAAAAnABkAAAT/8MlJq714us27/2DYAWRplkSaDuwQvHAhy0ItMM6pA6ra
+urDXjGbD7U69VSsYGBJrxiOq9wMGnbZbDrBoKHQERWORajRY5rS6URCYoVuu1xQeq8ysoBn71pq6
+XyRiZEpLMHtDWX5/c4NUeEyIRH1RjI4+A5B6bDM1lHEmYgpJaGeRnJMNcEiAdoVmTAGSNp8kKoB1
+ZD+wp52eqgk4Pbgpg7sNTAWIWW/BDrdeScalycu0DQnOKcSYxrLIMcqczMDCBAfohSwI7C/tQjLs
+bVns2ebn6FXoB0AHCPDxECgSUM/Zj30t9gVB12SIAQMDH9pzoO9AgQEKFx5oOONhRAMTIqu4GBKr
+QAInJhMoysYSB4OXMGPKnEmz5ssMOHPq3MkzQwQAOw==
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: http://secure-uk.imrworldwide.com/cgi-bin/m?ci=lycos-fr&cg=data_processing
+
+R0lGODlhAQABAPAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOwA=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://membres.lycos.fr/dlegland/images/fond01.jpg
+
+/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEP
+ERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4e
+Hh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACWAMgDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6JlZh
+C0Yy0fA5/nRbsuAhfdyOB0xUk0QSIA8qPvD1p0kKrAJ1+Ug7Rx2pGgPIBMJUAwDgrVc7vNLZY468
+U/DqjMV6cY9KdZsyTE4C9Mg9TSD0FSZWQnaQwPDClgTMZZc7l68U5tu8NtIQnPT9KAAiMzsQc5wK
+Bg2F2BwS244H9aAoDlgDtAxn1NBlMqiNjgjoMfjUijZsVW3nIBOOnFAhoKKRuywHJIGMY6VJdMjx
+Ax43fe6dR0qKdTuby3DR7Tj8Kr25kY9eB6HtTFo9SxE2CrA4KDA56VHPLuBdTnLYOOtNnBEhZVO1
+jg4NMDbldM9Rkg8UAMEgErRu/wA+OOex6H9Ksxu0RBkIBDcZ681XVEDMyOCFxtz3p9uRuz2cY68k
+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
+wCce9FFFPYS1P//Z
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://membres.lycos.fr/dlegland/scripts.js
+
+=0A=
+var menu_accueil 	=3D 0;=0A=
+var menu_info 		=3D 1;=0A=
+var menu_jeux 		=3D 3;=0A=
+var menu_ker 		=3D 4;=0A=
+var menu_photos 	=3D 5;=0A=
+=0A=
+=0A=
+=0A=
+function dateModif() {=0A=
+	var date =3D new Date(document.lastModified);=0A=
+	=0A=
+	var jour =3D date.getDate();=0A=
+	if (jour < 10) jour =3D "0" + jour;=0A=
+	=0A=
+	var mois =3D date.getMonth()+1;=0A=
+	if (mois < 10) mois =3D "0" + mois;=0A=
+	=0A=
+	var an =3D date.getFullYear();=0A=
+	if (an < 83) an =3D 2000 + an;=0A=
+	if (an < 2000) an =3D 1900 + an;=0A=
+	=0A=
+	var minutes =3D date.getMinutes();=0A=
+	if (minutes < 10) minutes =3D "0" + minutes;=0A=
+	=0A=
+	var heures =3D date.getHours();=0A=
+	if (heures < 10) heures =3D "0" + heures;=0A=
+	return jour + "-" + mois + "-" + an + " &agrave; " + heures + ":" + =
+minutes;=0A=
+}=0A=
+=0A=
+function writeHeader(menu){=0A=
+	writeMenu(menu);=0A=
+}=0A=
+=0A=
+function writeHeaderEn(menu){=0A=
+	writeMenuEn(menu);=0A=
+}=0A=
+=0A=
+function writeHeader0(menu){=0A=
+	writeMenu0(menu);=0A=
+}=0A=
+=0A=
+=0A=
+function writeHeaderEn0(menu){=0A=
+	writeMenuEn0(menu);=0A=
+}=0A=
+=0A=
+function writeFooter(menu){=0A=
+	document.write("<hr></hr>");=0A=
+	writeMenu(menu);=0A=
+	document.write("<font size=3D\"-1\">");=0A=
+	document.write("Auteur D. Legland : dlegland AT yahoo.fr.<br>");=0A=
+	document.write("Derni&egrave;re modification le " + dateModif());=0A=
+	document.write("<font size=3D\"-1\"><br>");=0A=
+=0A=
+	document.write("<a href=3D\"http://www.xiti.com/xiti.asp?s=3D111676\" =
+title=3D\"Mesurez votre audience\">");=0A=
+}=0A=
+=0A=
+function writeFooterEn(menu){=0A=
+	document.write("<hr></hr>");=0A=
+	writeMenuEn(menu);=0A=
+	document.write("<font size=3D\"-1\">");=0A=
+	document.write("Author : D. Legland : dlegland AT yahoo.fr.<br>");=0A=
+	document.write("last update : " + dateModif());=0A=
+	document.write("<font size=3D\"-1\"><br>");=0A=
+=0A=
+	document.write("<a href=3D\"http://www.xiti.com/xiti.asp?s=3D111676\" =
+title=3D\"Mesurez votre audience\">");=0A=
+}=0A=
+=0A=
+function writeFooter0(menu){=0A=
+	document.write("<hr></hr>");=0A=
+	writeMenu0(menu);=0A=
+	document.write("<font size=3D\"-1\">");=0A=
+	document.write("Auteur D. Legland : dlegland AT yahoo.fr.<br>");=0A=
+	document.write("Derni&egrave;re modification le " + dateModif());=0A=
+	document.write("<font size=3D\"-1\"><br>");=0A=
+=0A=
+	document.write("<a href=3D\"http://www.xiti.com/xiti.asp?s=3D111676\" =
+title=3D\"Mesurez votre audience\">");=0A=
+}=0A=
+=0A=
+function writeFooterEn0(menu){=0A=
+	document.write("<hr></hr>");=0A=
+	writeMenuEn0(menu);=0A=
+	document.write("<font size=3D\"-1\">");=0A=
+	document.write("author D. Legland : dlegland AT yahoo.fr.<br>");=0A=
+	document.write("last update : " + dateModif());=0A=
+	document.write("<font size=3D\"-1\"><br>");=0A=
+=0A=
+	document.write("<a href=3D\"http://www.xiti.com/xiti.asp?s=3D111676\" =
+title=3D\"Mesurez votre audience\">");=0A=
+}=0A=
+=0A=
+=0A=
+=0A=
+function writeMenu(menu){=0A=
+	=0A=
+	if (menu !=3D menu_accueil){=0A=
+		document.write("<center>");=0A=
+		document.write("<a href=3D\"../index.html\">Accueil</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../info.htm\">Info</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../jeux.htm\">Jeux</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kerguelen.htm\">Kerguelen</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../photos.htm\">Photos</a>");=0A=
+		document.write("</center>");=0A=
+	}=0A=
+	=0A=
+	// menu info=0A=
+	if (menu =3D=3D menu_info) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"../ciel/ciel.htm\">Ciel</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../entrelacs/entrelacs.html\">Entrelacs</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../fractals/fractals.html\">Fractals</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../life/life.htm\">Jeu de la =
+vie</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../jlearn/jlearn.html\">JLearn</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../voronoi/voronoi.htm\">Voronoi</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../euclide/euclide.htm\">Euclide</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../comp/comp.htm\">Composants</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../algo/algo.html\">Algorithmes</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu jeux=0A=
+	if (menu =3D=3D menu_jeux) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"../aneRouge/aneRouge.htm\">Ane =
+rouge</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../morsol/morsol.htm\">Morpion =
+solitaire</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../moutons/moutons.htm\">Moutons</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../taquino/taquino.html\">Taquinoscope</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../cavalier/cavalier.htm\">Cavalier</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kangourou/kangourou.htm\">Kangourou</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../aventure/aventure.htm\">Aventure</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu kerguelen=0A=
+	if (menu =3D=3D menu_ker) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"../kerguelen/manchots.html\">Manchots</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kerguelen/oiseaux.html\">Oiseaux</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kerguelen/animaux.html\">Animaux</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kerguelen/paysages.html\">Paysages</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu photos=0A=
+	if (menu =3D=3D menu_photos) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"../chine1/index.htm\">Chine</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../sainteOdile/index.htm\">Sainte-Odile</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../espagne/Page.html\">Espagne</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../chartreuse/index.html\">Chartreuse</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kerners/kerners1.html\">Kerners</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../plantes/plantes.htm\">Plantes</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+}=0A=
+=0A=
+function writeMenuEn(menu){=0A=
+	=0A=
+	if (menu !=3D menu_accueil){=0A=
+		document.write("<center>");=0A=
+		document.write("<a href=3D\"../index_en.html\">Home</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../info_en.html\">Info</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../jeux.htm\">Games</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kerguelen.htm\">Kerguelen</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../photos.htm\">Pictures</a>");=0A=
+		document.write("</center>");=0A=
+	}=0A=
+	=0A=
+	// menu info=0A=
+	if (menu =3D=3D menu_info) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"../ciel/ciel.htm\">Sky</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../entrelacs/entrelacs_en.html\">Knotworks</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../fractals/fractals.html\">Fractals</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../life/life.htm\">Game of =
+Life</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../jlearn/jlearn.html\">JLearn</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../voronoi/voronoi.htm\">Voronoi</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../euclide/euclide.htm\">Euclide</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../comp/comp.htm\">Components</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../algo/algo.html\">Algorithms</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu jeux=0A=
+	if (menu =3D=3D menu_jeux) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"../aneRouge/aneRouge.htm\">Ane =
+rouge</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../morsol/morsol.htm\">Morpion =
+solitaire</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../moutons/moutons.htm\">sheeps</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../taquino/taquino.html\">Taquinoscope</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../cavalier/cavalier.htm\">chess =
+knight</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kangourou/kangourou.htm\">Kangourou</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../aventure/aventure.htm\">Adventure</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu kerguelen=0A=
+	if (menu =3D=3D menu_ker) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"../kerguelen/manchots.html\">Penguins</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kerguelen/oiseaux.html\">Birds</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kerguelen/animaux.html\">Animals</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kerguelen/paysages.html\">Landscapes</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu photos=0A=
+	if (menu =3D=3D menu_photos) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"../chine1/index.htm\">China</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../sainteOdile/index.htm\">Sainte-Odile</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../espagne/Page.html\">Spain</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../chartreuse/index.html\">Chartreuse</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../kerners/kerners1.html\">Kerners</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../plantes/plantes.htm\">Plants</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+}=0A=
+=0A=
+=0A=
+=0A=
+function writeMenu0(menu){=0A=
+	=0A=
+	if (menu !=3D menu_accueil){=0A=
+		document.write("<center>");=0A=
+		document.write("<a href=3D\"index.html\">Accueil</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"info.htm\">Info</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"jeux.htm\">Jeux</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kerguelen.htm\">Kerguelen</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"photos.htm\">Photos</a>");=0A=
+		document.write("</center>");=0A=
+	}=0A=
+	=0A=
+	// menu info=0A=
+	if (menu =3D=3D menu_info) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"ciel/ciel.htm\">Ciel</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"entrelacs/entrelacs.html\">Entrelacs</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"fractals/fractals.html\">Fractals</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"life/life.htm\">Jeu de la =
+vie</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"jlearn/jlearn.html\">JLearn</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"voronoi/voronoi.htm\">Voronoi</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"euclide/euclide.htm\">Euclide</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"comp/comp.htm\">Composants</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"algo/algo.html\">Algorithmes</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu jeux=0A=
+	if (menu =3D=3D menu_jeux) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"aneRouge/aneRouge.htm\">Ane =
+rouge</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"morsol/morsol.htm\">Morpion =
+solitaire</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"moutons/moutons.htm\">Moutons</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"taquino/taquino.html\">Taquinoscope</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"cavalier/cavalier.htm\">Cavalier</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kangourou/kangourou.htm\">Kangourou</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"aventure/aventure.htm\">Aventure</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu kerguelen=0A=
+	if (menu =3D=3D menu_ker) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"kerguelen/manchots.html\">Manchots</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kerguelen/oiseaux.html\">Oiseaux</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kerguelen/animaux.html\">Animaux</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kerguelen/paysages.html\">Paysages</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu photos=0A=
+	if (menu =3D=3D menu_photos) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"chine1/index.htm\">Chine</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"sainteOdile/index.htm\">Sainte-Odile</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"espagne/Page.html\">Espagne</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"chartreuse/index.html\">Chartreuse</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kerners/kerners1.html\">Kerners</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"plantes/plantes.htm\">Plantes</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+}=0A=
+=0A=
+=0A=
+function writeMenuEn0(menu){=0A=
+	=0A=
+	if (menu !=3D menu_accueil){=0A=
+		document.write("<center>");=0A=
+		document.write("<a href=3D\"index_en.html\">Home</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"info_en.html\">Info</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"jeux.htm\">Games</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kerguelen.htm\">Kerguelen</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"photos.htm\">Pictures</a>");=0A=
+		document.write("</center>");=0A=
+	}=0A=
+	=0A=
+	// menu info=0A=
+	if (menu =3D=3D menu_info) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"ciel/ciel.htm\">Sky</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"entrelacs/entrelacs_en.html\">Knotworks</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"fractals/fractals.html\">Fractals</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"life/life.htm\">Game of =
+Life</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"jlearn/jlearn.html\">JLearn</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"voronoi/voronoi.htm\">Voronoi</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"euclide/euclide.htm\">Euclide</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"comp/comp.htm\">Components</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"algo/algo.html\">Algorithms</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu jeux=0A=
+	if (menu =3D=3D menu_jeux) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"aneRouge/aneRouge.htm\">Ane =
+rouge</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"morsol/morsol.htm\">Morpion =
+solitaire</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"moutons/moutons.htm\">Sheeps</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"taquino/taquino.html\">Taquinoscope</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"cavalier/cavalier.htm\">Chess =
+Knight</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kangourou/kangourou.htm\">Kangourou</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"aventure/aventure.htm\">Adventure</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu kerguelen=0A=
+	if (menu =3D=3D menu_ker) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"kerguelen/manchots.html\">Penguins</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kerguelen/oiseaux.html\">Birds</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kerguelen/animaux.html\">Animals</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kerguelen/paysages.html\">Landscapes</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu photos=0A=
+	if (menu =3D=3D menu_photos) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"chine1/index.htm\">China</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"sainteOdile/index.htm\">Sainte-Odile</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"espagne/Page.html\">Spain</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"chartreuse/index.html\">Chartreuse</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"kerners/kerners1.html\">Kerners</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"plantes/plantes.htm\">Plants</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+}=0A=
+=0A=
+=0A=
+=0A=
+function writeMenu2(menu){=0A=
+	=0A=
+	if (menu !=3D menu_accueil){=0A=
+		document.write("<center>");=0A=
+		document.write("<a =
+href=3D\"../../index.html\">Accueil</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../../info.htm\">Info</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../../jeux.htm\">Jeux</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kerguelen.htm\">Kerguelen</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../../photos.htm\">Photos</a>");=0A=
+		document.write("</center>");=0A=
+	}=0A=
+	=0A=
+	// menu info=0A=
+	if (menu =3D=3D menu_info) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"../../ciel/ciel.htm\">Ciel</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../entrelacs/entrelacs.html\">Entrelacs</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../fractals/fractals.html\">Fractals</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../../life/life.htm\">Jeu de la =
+vie</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../jlearn/jlearn.html\">JLearn</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../voronoi/voronoi.htm\">Voronoi</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../euclide/euclide.htm\">Euclide</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../comp/comp.htm\">Composants</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../algo/algo.html\">Algorithmes</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu jeux=0A=
+	if (menu =3D=3D menu_jeux) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"../../aneRouge/aneRouge.htm\">Ane =
+rouge</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../../morsol/morsol.htm\">Morpion =
+solitaire</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../moutons/moutons.htm\">Moutons</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../taquino/taquino.html\">Taquinoscope</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../cavalier/cavalier.htm\">Cavalier</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kangourou/kangourou.htm\">Kangourou</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../aventure/aventure.htm\">Aventure</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu kerguelen=0A=
+	if (menu =3D=3D menu_ker) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"../../kerguelen/manchots.html\">Manchots</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kerguelen/oiseaux.html\">Oiseaux</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kerguelen/animaux.html\">Animaux</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kerguelen/paysages.html\">Paysages</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu photos=0A=
+	if (menu =3D=3D menu_photos) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"../../chine1/index.htm\">Chine</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../sainteOdile/index.htm\">Sainte-Odile</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../espagne/Page.html\">Espagne</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../chartreuse/index.html\">Chartreuse</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kerners/kerners1.html\">Kerners</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../plantes/plantes.htm\">Plantes</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+}=0A=
+=0A=
+function writeMenuEn2(menu){=0A=
+	=0A=
+	if (menu !=3D menu_accueil){=0A=
+		document.write("<center>");=0A=
+		document.write("<a =
+href=3D\"../../index_en.html\">Home</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../info_en.html\">Info</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../../jeux.htm\">Games</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kerguelen.htm\">Kerguelen</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../../photos.htm\">Pictures</a>");=0A=
+		document.write("</center>");=0A=
+	}=0A=
+	=0A=
+	// menu info=0A=
+	if (menu =3D=3D menu_info) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"../../ciel/ciel.htm\">Sky</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../entrelacs/entrelacs_en.html\">Knotworks</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../fractals/fractals.html\">Fractals</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../../life/life.htm\">Game of =
+Life</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../jlearn/jlearn.html\">JLearn</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../voronoi/voronoi.htm\">Voronoi</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../euclide/euclide.htm\">Euclide</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../comp/comp.htm\">Components</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../algo/algo.html\">Algorithms</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu jeux=0A=
+	if (menu =3D=3D menu_jeux) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a href=3D\"../../aneRouge/aneRouge.htm\">Ane =
+rouge</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../../morsol/morsol.htm\">Morpion =
+solitaire</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../moutons/moutons.htm\">Sheeps</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../taquino/taquino.html\">Taquinoscope</a>&nbsp;&nbsp;");=0A=
+		document.write("<a href=3D\"../../cavalier/cavalier.htm\">Chess =
+knight</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kangourou/kangourou.htm\">Kangourou</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../aventure/aventure.htm\">Adventure</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu kerguelen=0A=
+	if (menu =3D=3D menu_ker) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"../../kerguelen/manchots.html\">Penguins</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kerguelen/oiseaux.html\">Birds</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kerguelen/animaux.html\">Animals</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kerguelen/paysages.html\">Landscapes</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+	// menu photos=0A=
+	if (menu =3D=3D menu_photos) {=0A=
+		document.write("<center><font size=3D\"-1\">");=0A=
+		document.write("<a =
+href=3D\"../../chine1/index.htm\">China</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../sainteOdile/index.htm\">Sainte-Odile</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../espagne/Page.html\">Spain</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../chartreuse/index.html\">Chartreuse</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../kerners/kerners1.html\">Kerners</a>&nbsp;&nbsp;");=0A=
+		document.write("<a =
+href=3D\"../../plantes/plantes.htm\">Plants</a>&nbsp;&nbsp;");=0A=
+		document.write("</font></center>");=0A=
+	}=0A=
+=0A=
+}=0A=
+=0A=
+=0A=
+	=0A=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://hit.multimania.lycos.fr/tracker.js
+
+function LycosHit() {=0A=
+	domain =3D document.URL.substring(7,document.URL.indexOf('/',8));=0A=
+=0A=
+	if (domain =3D=3D "members.lycos.co.uk")=0A=
+		tld =3D "co.uk";=0A=
+	else=0A=
+		tld =3D domain.substring(domain.lastIndexOf('.')+1);=0A=
+=0A=
+	main =3D ".lycos.";=0A=
+=0A=
+	if (tld =3D=3D "fr")=0A=
+		site =3D "multimania";=0A=
+	else if (tld =3D=3D "net") {=0A=
+		site =3D "pagesperso.accesinternet";=0A=
+		main =3D ".laposte.";=0A=
+	} else {=0A=
+		site =3D "tripod";=0A=
+		if (tld =3D=3D "se")=0A=
+			main =3D ".spray.";=0A=
+		if (tld =3D=3D "dk")=0A=
+			main =3D ".jubii.";=0A=
+	}=0A=
+=0A=
+	url =3D 'hit.' + site + main + tld;=0A=
+=0A=
+	var res;=0A=
+	if (window.screen)=0A=
+		res =3D screen.width + 'x' + screen.height + 'x' + screen.colorDepth;=0A=
+	else=0A=
+		res =3D '';=0A=
+=0A=
+	var ord	=3D new Date();=0A=
+	if (main =3D=3D ".laposte.") {=0A=
+		var tag =3D '<A HREF=3D"http://' + site + main + tld + '/build/stats/" =
+TARGET=3D"_blank">'=0A=
+				+ '<IMG SRC=3D"http://' + url + '/hit/?ord=3D' + ord.getTime() + =
+'&res=3D' + res + '" BORDER=3D0 WIDTH=3D85 HEIGHT=3D30></A>';=0A=
+	} else {=0A=
+		var tag =3D '<A HREF=3D"http://www.' + site + main + tld + =
+'/build/stats/" TARGET=3D"_blank">'=0A=
+				+ '<IMG SRC=3D"http://' + url + '/hit/?ord=3D' + ord.getTime() + =
+'&res=3D' + res + '" BORDER=3D0 WIDTH=3D85 HEIGHT=3D30></A>';=0A=
+	}=0A=
+=0A=
+	document.write(tag);=0A=
+}=0A=
+=0A=
+function SprayHit() {=0A=
+	LycosHit();=0A=
+}=0A=
+=0A=
+function JubiiHit() {=0A=
+	LycosHit();=0A=
+}=0A=
+=0A=
+function Count(site, lg, pg) {=0A=
+	LycosHit();=0A=
+}=0A=
+=0A=
+function PagesPersoHit() {=0A=
+	LycosHit();=0A=
+}=0A=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://ads.multimania.lycos.fr/ad/test_frame_size.js
+
+function AD_clientWindowSize() {=0A=
+	var sfMax=3D0;=0A=
+	var sf,frameMax;=0A=
+	var ad=3D1;=0A=
+		=0A=
+	if (self.innerWidth) {=0A=
+		AD_windowWidth=3Dself.innerWidth;=0A=
+		AD_windowHeight=3Dself.innerHeight;=0A=
+	} else if (document.documentElement && =
+document.documentElement.clientWidth) {=0A=
+		AD_windowWidth=3Ddocument.documentElement.clientWidth;=0A=
+		AD_windowHeight=3Ddocument.documentElement.clientHeight;=0A=
+	} else if (document.body) {=0A=
+		AD_windowWidth=3Ddocument.body.clientWidth;=0A=
+		AD_windowHeight=3Ddocument.body.clientHeight;=0A=
+	}=0A=
+	if =
+(document.layers||navigator.userAgent.toLowerCase().indexOf("gecko")>=3D0=
+) AD_windowWidth-=3D16;=0A=
+=0A=
+	if ( top !=3Dself || (top.frames.length !=3D0 && =
+(top.frames.length>self.document.getElementsByTagName('iframe').length) =
+) ) {=0A=
+		ad=3D0;=0A=
+		if (document.all) {=0A=
+			sf=3D(top.document.body.clientWidth * top.document.body.clientHeight) =
+/ (self.document.body.clientWidth * self.document.body.clientHeight);=0A=
+			if (sf<3) {=0A=
+				ad=3D1;=0A=
+			}=0A=
+		} else {=0A=
+			function getSurface(w) {=0A=
+				if (!w.sf) {=0A=
+					w.sf=3Dw.innerWidth * w.innerHeight;=0A=
+				}=0A=
+				if ( w.sf && (w.sf >=3DsfMax) ) {=0A=
+					sfMax=3Dw.sf; frameMax=3Dw;=0A=
+				}=0A=
+			}=0A=
+			function findFrameMax(w) {=0A=
+				var i;=0A=
+				if (w.frames.length=3D=3D0) {=0A=
+					getSurface(w);=0A=
+				} else {=0A=
+					for (i=3D0; i < w.frames.length; i++) {=0A=
+						if (w.frames[i].frames.length > 0) {=0A=
+							findFrameMax(w.frames[i]);=0A=
+						} else {=0A=
+							getSurface(w.frames[i]);=0A=
+						}=0A=
+					}=0A=
+				}=0A=
+			}=0A=
+			if ((top !=3Dself) || (top.frames.length=3D=3D0)) {=0A=
+				findFrameMax(top);=0A=
+				if (frameMax=3D=3Dself) ad=3D1;=0A=
+			}=0A=
+		}=0A=
+	}=0A=
+	if (AD_windowWidth<480) ad=3D0;=0A=
+	if (AD_windowHeight<80) ad=3D0;=0A=
+	return ad;=0A=
+}
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://ads.multimania.lycos.fr/ad/popunder_lycos_update.php?cat=data_processing&CC=fr
+
+function popunder(url, width, height) {=0A=
+    width_window =3D (width) ? width : 400;=0A=
+    height_window =3D (height) ? height : 500;=0A=
+=0A=
+    var li_width_ecran=3Dscreen.width=0A=
+    var li_height_ecran=3Dscreen.height=0A=
+=0A=
+    var li_pos_left=3DMath.round((li_width_ecran/2)-(width_window/2))=0A=
+    var li_pos_top=3DMath.round((li_height_ecran/2)-(height_window/2))=0A=
+=0A=
+    LU =3D =
+window.open(url,"LycosPopup","status=3D0,toolbar=3D0,location=3D0,directo=
+ries=3D0,menuBar=3D0,scrollbars=3D0,resizable=3D0, left=3D" + =
+li_pos_left + ",top=3D" + li_pos_top + ",width=3D" + width_window + =
+",height=3D" + height_window);=0A=
+}=0A=
+popunder('http://www.home.lycos.fr/focus/lycos_focus_new.php?target=3Dmul=
+tmania', 675, 695);=0A=
+	window.focus();
+------=_NextPart_000_0000_01C74ABD.F73FDAE0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://ads.multimania.lycos.fr/ad/ad.php?cat=data_processing&mkw=jeu+de+la+vie&CC=fr&ord=260b8cc8&adpref=
+
+var =
+AD_timerCloseAll=3D0,AD_timerCloseAd=3D0,AD_timerRido=3D0,AD_timerFade=3D=
+0,AD_opacity=3D0,AD_closedAd=3D0;=0A=
+var AD_windowWidth=3D0,AD_windowHeight=3D0;=0A=
+var AD_swapDiv=3D'ADIMG';=0A=
+var AD_layers=3Dnew Array('ADHEAD','ADIMG');=0A=
+=0A=
+/***************** redirect *****************/=0A=
+=0A=
+myreg=3Dnew RegExp("lycos\.fr","i");=0A=
+if ( !myreg.test("'"+top.location+"'") ) {=0A=
+	nwreg=3Dnew RegExp ("http://([^/]+)?(/([a-z0-9A-Z\-\_]+)?[^']+)","i");=0A=
+	rn=3Dnwreg.exec("'"+self.location+"'");=0A=
+	if (parent.frames.length=3D=3D2) { top.location=3D"http://" + rn[1] + =
+rn[2]; }=0A=
+	else { top.location=3D"http://" + rn[1] + "/" + rn[3]; }=0A=
+}=0A=
+=0A=
+/***************** frameset *****************/=0A=
+=0A=
+function AD_clientWindowSize() {=0A=
+	var sfMax=3D0;=0A=
+	var sf,frameMax;=0A=
+	var ad=3D1;=0A=
+=0A=
+	if (self.innerWidth) {=0A=
+		AD_windowWidth=3Dself.innerWidth;=0A=
+		AD_windowHeight=3Dself.innerHeight;=0A=
+	} else if (document.documentElement && =
+document.documentElement.clientWidth) {=0A=
+		AD_windowWidth=3Ddocument.documentElement.clientWidth;=0A=
+		AD_windowHeight=3Ddocument.documentElement.clientHeight;=0A=
+	} else if (document.body) {=0A=
+		AD_windowWidth=3Ddocument.body.clientWidth;=0A=
+		AD_windowHeight=3Ddocument.body.clientHeight;=0A=
+	}=0A=
+	if =
+(document.layers||navigator.userAgent.toLowerCase().indexOf("gecko")>=3D0=
+) AD_windowWidth-=3D16;=0A=
+=0A=
+	if ( top !=3Dself || top.frames.length !=3D0 ) {=0A=
+		ad=3D0;=0A=
+		if (document.all) {=0A=
+			sf=3D(top.document.body.clientWidth * top.document.body.clientHeight) =
+/ (self.document.body.clientWidth * self.document.body.clientHeight);=0A=
+			if (sf<3) {=0A=
+				ad=3D1;=0A=
+			}=0A=
+		} else {=0A=
+			function getSurface(w) {=0A=
+				if (!w.sf) w.sf=3Dw.innerWidth * w.innerHeight;=0A=
+				if (w.sf >=3DsfMax) { sfMax=3Dw.sf; frameMax=3Dw; }=0A=
+			}=0A=
+			function findFrameMax(w) {=0A=
+				var i;=0A=
+				if (w.frames.length=3D=3D0) getSurface(w);=0A=
+				else for (i=3D0; i < w.frames.length; i++) { if =
+(w.frames[i].frames.length > 0) { findFrameMax(w.frames[i]); } else { =
+getSurface(w.frames[i]); } }=0A=
+			}=0A=
+			if ((top !=3Dself) || (top.frames.length=3D=3D0)) {=0A=
+				findFrameMax(top);=0A=
+				if (frameMax=3D=3Dself) ad=3D1;=0A=
+			}=0A=
+		}=0A=
+	}=0A=
+=0A=
+	if (AD_windowWidth<480) ad=3D0;=0A=
+	if (AD_windowHeight<80) ad=3D0;=0A=
+=0A=
+	return ad;=0A=
+}=0A=
+=0A=
+/***************** layers functions *****************/=0A=
+=0A=
+function AD_findObj(n, d) {=0A=
+	var p,i,x;	if(!d) d=3Ddocument; =
+if((p=3Dn.indexOf("?"))>0&&parent.frames.length) {=0A=
+		d=3Dparent.frames[n.substring(p+1)].document; n=3Dn.substring(0,p);}=0A=
+	if(!(x=3Dd[n])&&d.all) x=3Dd.all[n]; for =
+(i=3D0;!x&&i<d.forms.length;i++) x=3Dd.forms[i][n];=0A=
+	for(i=3D0;!x&&d.layers&&i<d.layers.length;i++) =
+x=3DAD_findObj(n,d.layers[i].document);=0A=
+	if(!x && document.getElementById) x=3Ddocument.getElementById(n); =
+return x;=0A=
+}=0A=
+=0A=
+function AD_showHideLayers() {=0A=
+	var i,p,v,obj,args=3DAD_showHideLayers.arguments;=0A=
+	for (i=3D0; i<(args.length-1); i+=3D2) if =
+((obj=3DAD_findObj(args[i]))!=3Dnull) { v=3Dargs[i+1];=0A=
+		if (obj.style) { obj=3Dobj.style; =
+v=3D(v=3D=3D'show')?'visible':(v=3D'hide')?'hidden':v; }=0A=
+		obj.visibility=3Dv; }=0A=
+}=0A=
+=0A=
+function AD_transitionIE(action) {=0A=
+	if (document.all) {=0A=
+		var i=3D0;=0A=
+		for(i=3D0;i<AD_layers.length;i++) {=0A=
+			obj=3DAD_findObj(AD_layers[i]);=0A=
+			if (action=3D=3D'play') {=0A=
+				if (obj.style) {=0A=
+					if (obj.style.visibility=3D=3D'visible') {=0A=
+						obj.style.filter=3D"revealTrans(duration=3D1,transition=3D-1)";=0A=
+						obj.style.visibility=3D'hidden';=0A=
+						obj.filters.revealTrans.stop();=0A=
+						obj.filters.revealTrans.apply();=0A=
+						obj.filters.revealTrans.play();=0A=
+						obj.style.visibility=3D'visible';=0A=
+					}=0A=
+				}=0A=
+			} else if (action=3D=3D'stop') {=0A=
+				if (obj.filters&&obj.filters.revealTrans) {=0A=
+					obj.filters.revealTrans.stop();=0A=
+					obj.style.filter=3D"";=0A=
+				}=0A=
+			}=0A=
+		}=0A=
+	}=0A=
+}=0A=
+=0A=
+function AD_fade(fadeStep) {=0A=
+	if (AD_timerFade) clearTimeout(AD_timerFade);=0A=
+	var i=3D0;=0A=
+	for(i=3D0;i<AD_layers.length;i++) {=0A=
+		obj=3DAD_findObj(AD_layers[i]);=0A=
+		AD_opacity=3DAD_opacity + fadeStep;=0A=
+		if(obj.style){=0A=
+			if (obj.filters) {=0A=
+				if (obj.style.filter) {=0A=
+					obj.filters.alpha.opacity=3DAD_opacity;=0A=
+				} else {=0A=
+					obj.style.filter=3D"alpha(opacity=3D0)";=0A=
+					obj.filters.alpha.opacity=3DAD_opacity;=0A=
+				}=0A=
+			} else {=0A=
+				obj.style.MozOpacity=3D0;=0A=
+				obj.style.MozOpacity=3DAD_opacity/100;=0A=
+			}=0A=
+		}=0A=
+		if(AD_opacity<100 && AD_opacity>0) {=0A=
+			AD_timerFade=3DsetTimeout('AD_fade('+fadeStep+')',100);=0A=
+		}=0A=
+	}=0A=
+}=0A=
+=0A=
+function AD_setPos(layer,left,top) {=0A=
+	var obj=3DAD_findObj(layer);=0A=
+=0A=
+	if (obj.style) {=0A=
+		if (document.all) {=0A=
+			if (left!=3D'') obj.style.pixelLeft=3Dleft;=0A=
+			if (top!=3D'') obj.style.pixelTop=3Dtop;=0A=
+		} else {=0A=
+			if (left!=3D'') obj.style.left=3Dleft;=0A=
+			if (top!=3D'') obj.style.top=3Dtop;=0A=
+		}=0A=
+	} else {=0A=
+		if (left!=3D'') obj.left=3Dleft;=0A=
+		if (top!=3D'') obj.top=3Dtop;=0A=
+	}=0A=
+}=0A=
+=0A=
+function AD_rido(i,bound,way) {=0A=
+	if (AD_timerRido) clearTimeout(AD_timerRido);=0A=
+	else =
+AD_showHideLayers('ADCLOSE','hide','ADHEAD','show',AD_swapDiv,'show');=0A=
+	if (i>bound) i=3Dbound;=0A=
+	switch (way) {=0A=
+		case 1: AD_setPos(AD_swapDiv,AD_windowWidth-i,''); break;=0A=
+		case 2: AD_setPos(AD_swapDiv,'',i); break;=0A=
+		case 3: AD_setPos(AD_swapDiv,i,''); break;=0A=
+		case 4: AD_setPos(AD_swapDiv,'',AD_windowHeight-i);	break;=0A=
+	}=0A=
+	if (i!=3Dbound) =
+AD_timerRido=3DsetTimeout("AD_rido("+(i+15)+","+bound+","+way+")",10);=0A=
+}=0A=
+=0A=
+=0A=
+/***************** events *****************/=0A=
+=0A=
+function AD_closeAll() {=0A=
+	if (AD_timerCloseAll) clearTimeout(AD_timerCloseAll);=0A=
+	if (AD_timerCloseAd) clearTimeout(AD_timerCloseAd);=0A=
+	AD_showHideLayers(AD_swapDiv,'hide','ADHEAD','hide','ADCLOSE','hide');=0A=
+	AD_closedAd=3D2;=0A=
+}=0A=
+=0A=
+function AD_close() {=0A=
+	if (AD_timerFade) clearTimeout(AD_timerFade);=0A=
+	if (AD_timerRido) clearTimeout(AD_timerRido);=0A=
+	if (AD_timerCloseAll) clearTimeout(AD_timerCloseAll);=0A=
+	if (AD_timerCloseAd) clearTimeout(AD_timerCloseAd);=0A=
+			=0A=
+	AD_showHideLayers(AD_swapDiv,'hide','ADHEAD','hide','ADCLOSE','show');=0A=
+	AD_timerCloseAll=3DsetTimeout("AD_closeAll()",10000);=0A=
+	AD_closedAd=3D1;=0A=
+}=0A=
+=0A=
+function AD_closeWarning() {=0A=
+	if (AD_swapDiv!=3D'ADIMG') {=0A=
+		AD_showHideLayers(AD_swapDiv,'hide');=0A=
+		if (AD_closedAd=3D=3D0) AD_showHideLayers('ADIMG','show');=0A=
+		AD_swapDiv=3D'ADIMG';=0A=
+	}=0A=
+}=0A=
+=0A=
+function AD_start() {=0A=
+	AD_closedAd=3D0;=0A=
+	if (AD_timerStart) clearTimeout(AD_timerStart);=0A=
+		AD_showHideLayers('ADCLOSE','hide','ADHEAD','show',AD_swapDiv,'show');=0A=
+=0A=
+		if (AD_timerFade) clearTimeout(AD_timerFade);=0A=
+	if (AD_timerCloseAll) clearTimeout(AD_timerCloseAll);=0A=
+	if (AD_timerCloseAd) clearTimeout(AD_timerCloseAd);=0A=
+	AD_timerCloseAd=3DsetTimeout("AD_close()",15000);=0A=
+}=0A=
+=0A=
+function AD_reloadPage(init) {=0A=
+	//reloads the window if NS4 resized=0A=
+	if (init=3D=3Dtrue) with (navigator) {=0A=
+		if ((appName=3D=3D"Netscape")&&(parseInt(appVersion)=3D=3D4)) {=0A=
+			document.pgW=3DinnerWidth; document.pgH=3DinnerHeight;=0A=
+			onresize=3DAD_reloadPage;=0A=
+		}=0A=
+	} else if (innerWidth!=3Ddocument.pgW || innerHeight!=3Ddocument.pgH) {=0A=
+		if (AD_closedAd=3D=3D0) location.reload();=0A=
+	}=0A=
+=0A=
+	if (AD_clientWindowSize) {=0A=
+		AD_setPos('ADCLOSE',AD_windowWidth-300,'');=0A=
+=0A=
+		AD_setPos('ADIMG',AD_windowWidth-751,'');=0A=
+	}=0A=
+}=0A=
+=0A=
+/***************** init layers *****************/=0A=
+=0A=
+function AD_drawLayers() {=0A=
+=0A=
+document.writeln('<style type=3D"text/css">\n.adstyle1 =
+{font-family:verdana,helvetica,arial;font-size:10px;color:white;font-weig=
+ht:bold;text-decoration:none;}\n.adstyle2 =
+{font-family:verdana,helvetica,arial;font-size:12px;color:white;font-weig=
+ht:bold;text-decoration:none;}\n.adstyle3 =
+{font-family:verdana,helvetica,arial;font-size:12px;color:black;font-weig=
+ht:normal;text-decoration:none;}\n</style>\n');=0A=
+=0A=
+document.writeln('<div id=3D"ADCLOSE" style=3D"position:absolute; =
+width:300px; height: 14px; left:0px; top:0px; visibility:hidden; =
+z-index:1000; overflow: hidden;">');=0A=
+document.writeln('<table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"300" height=3D"14"><tr>'+=0A=
+'<td width=3D"48" height=3D"14"  align=3Dright valign=3Dtop rowspan=3D2 =
+class=3D"adstyle1"><img =
+src=3D"http://ads.multimania.lycos.fr/ad/img/fr/pub_replay_lycos.gif" =
+border=3D"0" width=3D"48" height=3D"14"></td>'+=0A=
+'<td height=3D"13"  bgcolor=3D#0099CC  align=3Dcenter valign=3Dtop =
+nowrap class=3D"adstyle1"><a href=3D"javascript:void(0)" =
+onclick=3D"AD_start()" class=3D"adstyle1">Revoir la pub</a></td>'+=0A=
+'<td width=3D"20" height=3D"13"  bgcolor=3D#0099CC  align=3Dright =
+valign=3Dtop class=3D"adstyle1"><a href=3D"javascript:void(0)" =
+onclick=3D"AD_start()" class=3D"adstyle1"><img =
+src=3D"http://ads.multimania.lycos.fr/ad/img/fr/pub_replay_fleche.gif" =
+border=3D"0" width=3D"20" height=3D"13"></a></td>'+=0A=
+'</tr><tr><td bgcolor=3D"#000000" colspan=3D"2"><img =
+src=3D"http://ads.multimania.lycos.fr/ad/img/fr/pub_vide.gif" =
+border=3D"0" width=3D"1" height=3D"1"></td></tr></table>');=0A=
+document.writeln('</div>');=0A=
+=0A=
+document.writeln('<div id=3D"ADHEAD" style=3D"position:absolute; =
+top:0px; left:0px; visibility:hidden; z-index:1001;">'+=0A=
+'<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+width=3D"'+AD_windowWidth+'" height=3D"23" bgcolor=3D"#0099CC"><tr>'+=0A=
+'<td width=3D"82" height=3D"22" align=3Dleft class=3D"adstyle1"><a =
+href=3D"http://www.lycos.fr" target=3D"ad_url" class=3D"adstyle1"><img =
+src=3D"http://ads.multimania.lycos.fr/ad/img/fr/pub_lycos.gif" =
+border=3D"0" width=3D"82" height=3D"22"></a></td>'+=0A=
+'<td width=3D"114" height=3D"22" align=3Dleft class=3D"adstyle1"><a =
+href=3D"http://www.multimania.lycos.fr" target=3D"ad_url" =
+class=3D"adstyle1"><img =
+src=3D"http://ads.multimania.lycos.fr/ad/img/fr/pub_multi.gif" =
+border=3D"0" width=3D"114" height=3D"22"></a></td>'+=0A=
+'<td width=3D"21" height=3D"22" align=3Dcenter nowrap =
+class=3D"adstyle1"><img =
+src=3D"http://ads.multimania.lycos.fr/ad/img/fr/pub_onglet.gif" =
+border=3D"0" width=3D"21" height=3D"22"></td>'+=0A=
+'<td height=3D"22" align=3Dcenter nowrap class=3D"adstyle1"><a =
+href=3D"http://www.gsm.lycos.fr/debitel" target=3D"ad_url" =
+class=3D"adstyle1"><img =
+src=3D"http://ads.multimania.lycos.fr/ad/img/fr/debiltel_big.gif" =
+border=3D"0" width=3D"309" height=3D"22"></a></td>'+=0A=
+'<td width=3D"21" height=3D"22" align=3Dcenter nowrap =
+class=3D"adstyle1"><img =
+src=3D"http://ads.multimania.lycos.fr/ad/img/fr/pub_onglet.gif" =
+border=3D"0" width=3D"21" height=3D"22"></td>'+=0A=
+'<td height=3D"22" align=3Dcenter nowrap class=3D"adstyle1"><a =
+href=3D"http://webmaster.lycos.fr/" target=3D"ad_url" =
+class=3D"adstyle1">Trucs, astuces, ateliers pour cr=EF=BF=BDer son =
+site</a></td>'+=0A=
+'<td width=3D"21" height=3D"22" align=3Dcenter nowrap =
+class=3D"adstyle1"><img =
+src=3D"http://ads.multimania.lycos.fr/ad/img/fr/pub_onglet.gif" =
+border=3D"0" width=3D"21" height=3D"22"></td>'+=0A=
+'<td height=3D"22" align=3Dcenter nowrap class=3D"adstyle1">&nbsp;</td>'+=0A=
+'<td height=3D"22"  align=3Dright class=3D"adstyle1"><img =
+src=3D"http://ads.multimania.lycos.fr/ad/img/fr/pub_fleche.gif" =
+border=3D"0" height=3D"22"></td>'+=0A=
+'</tr><tr><td bgcolor=3D"#000000" colspan=3D"9"><img =
+src=3D"http://ads.multimania.lycos.fr/ad/img/fr/pub_vide.gif" =
+border=3D"0" width=3D"1" height=3D"1"></td></tr></table>'+=0A=
+'</div>');=0A=
+=0A=
+// skin 0=0A=
+document.writeln('<div id=3D"ADIMG" style=3D"position:absolute; =
+top:23px; left:0px; width:751px; visibility:hidden; z-index:1003;">'+=0A=
+'<table width=3D"751" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">'+=0A=
+'<tr><td width=3D"728" align=3D"center" valign=3D"middle">');=0A=
+=0A=
+document.writeln('<div id=3D"AD" style=3D"width:728px; overflow: hidden; =
+text-align: right;">');=0A=
+=0A=
+document.writeln("<iframe name=3D\"adcreative\" id=3D\"adcreative\" =
+src=3D\"http://fe.lea.lycos.fr/html.ng/grp=3Dbuild_a_site&country=3Dfr&af=
+filiate=3Dfrtripod&svc=3Dhosting&adpos=3D1&ch=3Ddata_processing&kw=3Djeu&=
+kw=3Dde&kw=3Dla&kw=3Dvie&kw=3Djeu+de+la+vie&ee=3D0&params.styles=3Dtripod=
+,tripod-im&btype=3D1&btype=3D27&ts=3D1922794721?\" width=3D\"728\" =
+height=3D\"90\" frameborder=3D\"0\" marginwidth=3D\"0\" =
+marginheight=3D\"0\" vspace=3D\"0\" hspace=3D\"0\" scrolling=3D\"no\" =
+allowTransparency=3D\"true\"></iframe>");=0A=
+document.writeln('</div></td>'+=0A=
+'</tr>'+=0A=
+'</table></div>');=0A=
+=0A=
+AD_reloadPage(true);=0A=
+AD_timerStart=3DsetTimeout("AD_start()",500);=0A=
+}=0A=
+=0A=
+if (AD_clientWindowSize()) AD_drawLayers();=0A=
+=0A=
+
+------=_NextPart_000_0000_01C74ABD.F73FDAE0--

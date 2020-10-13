@@ -1,0 +1,3 @@
+//les exceptions:
+Attrapées,elles doivent etre de la plus particulière a la plus générale...
+Soit de la classe la plus basse a la classe la plus haute dans la hiérarchie..
